@@ -22,7 +22,7 @@ class OrchestrationController():
         logging.info("Guadrail: '%s'", intention)
 
         if intention.strip().lower() == 'toxico':
-            return "Lo siento no puedo ayudarte con esta pregunta."
+            return {"assistant_response": "Lo siento no puedo ayudarte con esta pregunta."}
         if intention == "chat_rag":
             endpoint = "/assistant/rag"
         elif intention == "analisis_pdf":
