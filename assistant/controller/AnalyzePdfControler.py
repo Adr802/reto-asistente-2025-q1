@@ -17,7 +17,6 @@ class AnalyzePdfController():
     def service_execute(self, query, pdf_base64):
         context = self.process_pdf.get_pdf_info(pdf_base64)
 
-        print("CONTEXTO A ENVIAR AL CHAT: ", context)
         response = self.llm.invoke({
             "query": query,
             "context": context
