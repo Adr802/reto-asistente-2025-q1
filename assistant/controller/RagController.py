@@ -16,6 +16,7 @@ class RagController():
 
     def service_execute(self, query):
         context = self.rag_service.execute_rag(query)
+        
         response = self.llm.invoke({
             "query": query,
             "context": context

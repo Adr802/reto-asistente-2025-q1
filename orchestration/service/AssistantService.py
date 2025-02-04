@@ -6,7 +6,7 @@ class AssistantService:
 
     def post_request(self, endpoint, query, pdfbase64):
         """Envía una solicitud POST a la API"""
-        url = f"{self.base_url}{endpoint}"
+        url = f"{self.base_url}/{endpoint}"
         headers = {"Content-Type": "application/json"}
         data = {
             "query": query,

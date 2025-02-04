@@ -30,11 +30,15 @@ class WebSearchAgent():
         #Buscador gl: ubicacion(Ecuador) - hl:idioma (espanol) - num: numero maximo de documentos a retornar 
         search = SerpAPIWrapper(serpapi_api_key=SERPAPI_API_KEY, params={"gl": "ec", "hl": "es", "num": "10"})
 
+        def search_results(query: str):
+            res = search.results(query)
+            return res['organic_results']
+        
         #Crear tool
         web_search_tool = Tool(
             name="google_search",
             description="Search Google for recent results.",
-            func=search.results,
+            func=search_results,
         )
 
         return initialize_agent(
