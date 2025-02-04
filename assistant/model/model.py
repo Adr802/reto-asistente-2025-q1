@@ -30,6 +30,5 @@ class Model():
 
     def invoke(self, variables):
         full_prompt = self.prompt.invoke(variables)
-        print("PROMPT COMPLETOa: ", full_prompt)
         response = self.llm.invoke(full_prompt)
         return response.content
