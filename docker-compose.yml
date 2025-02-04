@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  chromadb:
+    image: chromadb/chroma:latest
+    container_name: chromadb
+    ports:
+      - "8000:8000"
+    volumes:
+      - chromadb_data:/chroma/chroma
+    networks:
+      - reto_ia
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/heartbeat"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+
+  assistant:
+    build:
+      context: ./assistant  
+      dockerfile: Dockerfile  
+    container_name: assistant
+    ports:
+      - "5000:5000"
+    depends_on:
+      chromadb:
+        condition: service_healthy
+    networks:
+      - reto_ia
+    restart: unless-stopped
+
+  orchestration:
+    build:
+      context: ./orchestration  
+      dockerfile: Dockerfile
+    container_name: orchestration  
+    ports:
+      - "8080:8080"
+    depends_on:
+      - assistant  
+    networks:
+      - reto_ia
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend  
+      dockerfile: Dockerfile
+    container_name: frontend
+    ports:
+      - "7860:7860"
+    depends_on:
+      - orchestration  
+    networks:
+      - reto_ia
+    restart: unless-stopped
+
+networks:
+  reto_ia:
+
+volumes:
+  chromadb_data:

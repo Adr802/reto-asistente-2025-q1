@@ -2,7 +2,7 @@ from sentence_transformers import SentenceTransformer
 
 class DocumentEmbedder:
     def __init__(self):
-        self.model = SentenceTransformer("mixedbread-ai/mxbai-embed-large-v1", truncate_dim=512, trust_remote_code=True)
+        self.model = SentenceTransformer("jinaai/jina-embeddings-v2-base-es", truncate_dim=512, trust_remote_code=True)
 
     def embed_documents(self, documents):
         if not isinstance(documents, list):
