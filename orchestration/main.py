@@ -12,7 +12,7 @@ from controller.OrchestrationController import OrchestrationController
 app = Flask(__name__)
 api = Api(app)
 
-PORT = 8000
+PORT = 8080
 
 orchestration_controller = OrchestrationController()
 
@@ -21,4 +21,4 @@ api.add_resource(OrchestrationAdapter, "/orchestrate",
 
 if __name__ == "__main__":
     print(f"🚀 Flask API iniciando en http://127.0.0.1:{PORT}")
-    app.run(host="0.0.0.0", port=PORT, debug=True)
+    app.run(host="0.0.0.0", port=PORT)

@@ -11,7 +11,7 @@ class RagService():
         self.retriever = self._get_retriever()
 
     def _get_retriever(self):
-        persistent_client = chromadb.HttpClient()
+        persistent_client = chromadb.HttpClient(host="chromadb", port=8000)
         vector_store_client = Chroma(
             client=persistent_client,
             collection_name=COLLECTION_NAME,

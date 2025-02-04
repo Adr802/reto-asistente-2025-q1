@@ -24,11 +24,11 @@ class OrchestrationController():
         if intention.strip().lower() == 'toxico':
             return {"assistant_response": "Lo siento no puedo ayudarte con esta pregunta."}
         if intention == "chat_rag":
-            endpoint = "/assistant/rag"
+            endpoint = "assistant/rag"
         elif intention == "analisis_pdf":
-            endpoint = "/assistant/analyze-pdf"
+            endpoint = "assistant/analyze-pdf"
         elif intention == "asesor_compras":
-            endpoint = "/assistant/shopping-advisor"
+            endpoint = "assistant/shopping-advisor"
 
         logging.info("Intención procesada: '%s', Endpoint seleccionado: '%s'", intention, endpoint)
         

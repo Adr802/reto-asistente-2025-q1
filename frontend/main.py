@@ -13,7 +13,7 @@ def convertir_a_base64(archivo):
 
 # Función que realiza una solicitud al endpoint externo
 def obtener_respuesta_externa(mensaje):
-    url = "http://127.0.0.1:8000/orchestrate"
+    url = "http://orchestration:8080/orchestrate"
 
     # Validar que el mensaje de texto no esté vacío
     if not mensaje.get("text"):
