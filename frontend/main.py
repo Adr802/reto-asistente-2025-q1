@@ -54,7 +54,6 @@ demo = gr.ChatInterface(
     autofocus=False,
     multimodal=True,
     title = "AurelioAsistente",
-    description = "¡Hola! Soy AurelioAsistente, tu aliado financiero personal. Estoy aquí para ayudarte a gestionar tus finanzas de manera eficiente y segura. Puedo analizar tus estados de cuenta y ofrecerte recomendaciones personalizadas para que tomes decisiones informadas. Además, al considerar opciones de compra en comercios ecuatorianos, te ayudo a encontrar las mejores ofertas disponibles.",
 )
 
 if __name__ == "__main__":
